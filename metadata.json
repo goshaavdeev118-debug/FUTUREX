@@ -1,0 +1,6 @@
+{
+  "name": "FutureX",
+  "description": "Преміум мультифункціональний екранний портал та панель інструментів у стилі Apple, Tesla та Stripe з таймером, нотатками, менеджером завдань, калькулятором та графіками.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

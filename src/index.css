@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Base resets & custom smooth behavior */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* Beautiful smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.25);
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.4);
+  }
+}
+
+/* Premium Custom Design UTILS */
+@layer utilities {
+  /* Ultra-realistic Frosted Glass styles fitting the requested theme */
+  .glass {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.4); /* Slate 900 / 40 frosted */
+    backdrop-filter: blur(24px) saturate(170%);
+    -webkit-backdrop-filter: blur(24px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(2, 6, 23, 0.4);
+  }
+
+  /* Deep Glassmorphism Cards styled for maximum high-performance fidelity */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.35));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.08);
+  }
+
+  .dark .glass-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.65), rgba(3, 7, 18, 0.45)); /* gradient to match slate structure */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 50px -15px rgba(2, 6, 23, 0.6);
+  }
+
+  /* Apple Style Hover */
+  .apple-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .apple-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Stripe style animated gradient background layer */
+  .stripe-bg {
+    background: linear-gradient(-45deg, #2563eb, #4f46e5, #0ea5e9, #10b981);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* Apple/Tesla/Stripe high-performance mesh */
+  .apple-mesh {
+    background-image: radial-gradient(at 0% 0%, hsla(222,47%,11%,1) 0, transparent 50%),
+                      radial-gradient(at 50% 0%, hsla(243,30%,12%,1) 0, transparent 50%),
+                      radial-gradient(at 100% 0%, hsla(217,33%,17%,1) 0, transparent 50%),
+                      radial-gradient(at 0% 100%, hsla(217,33%,17%,1) 0, transparent 50%),
+                      radial-gradient(at 100% 100%, hsla(243,30%,12%,1) 0, transparent 50%);
+  }
+
+  /* Subtle border glowing indicators */
+  .border-glow-indigo {
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.25), 0 0 15px 2px rgba(99, 102, 241, 0.15);
+  }
+  .border-glow-emerald {
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25), 0 0 15px 2px rgba(16, 185, 129, 0.15);
+  }
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlowing {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.05); }
+}
+
+.glowing-mesh-sphere-1 {
+  background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(99,102,241,0) 70%);
+  animation: pulseGlowing 8s ease infinite alternate;
+}
+
+.glowing-mesh-sphere-2 {
+  background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(236,72,153,0) 70%);
+  animation: pulseGlowing 12s ease infinite alternate-reverse;
+}
+
+.glowing-mesh-sphere-3 {
+  background: radial-gradient(circle, rgba(45,212,191,0.2) 0%, rgba(45,212,191,0) 70%);
+  animation: pulseGlowing 10s ease infinite alternate;
+}
